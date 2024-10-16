@@ -6,13 +6,13 @@ const app = express();
 
 // CORS configuration
 app.use(cors({
-    origin: process.env.CORS_ORIGIN ,
+    origin: "https://smoothy-music.vercel.app",
     credentials: true
 }));
 
 // Middleware to handle JSON and URL-encoded data
-app.use(express.json({ limit: "50MB" }));
-app.use(express.urlencoded({ extended: true, limit: "50MB" }));
+app.use(express.json({ limit: "50mb" }));
+app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 
 // Serve static files from the "public" directory
 app.use(express.static("public"));
