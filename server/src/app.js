@@ -6,7 +6,7 @@ const app = express();
 
 // CORS configuration
 app.use(cors({
-    origin: "https://smoothy-music.vercel.app",
+    origin: process.env.CORS_ORIGIN ,
     credentials: true
 }));
 
