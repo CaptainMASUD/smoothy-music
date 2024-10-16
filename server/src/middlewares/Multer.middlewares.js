@@ -1,24 +1,24 @@
 import fs from 'fs';
 import multer from 'multer';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
+// Simulate __dirname in ES module
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
+// Use Vercel's /tmp directory for file storage during runtime
+const tempDir = '/tmp';  // Vercel allows writing only to /tmp
 
-
-
-// Use process.cwd() to get the root directory of the project
-const rootDir = process.cwd();
-const tempDir = path.join(rootDir, 'public', 'temp');  // Create the folder in the root directory
-
-// Ensure that the directory exists or create it
+// Ensure that the /tmp directory exists or create it (typically not necessary, but just in case)
 if (!fs.existsSync(tempDir)) {
     fs.mkdirSync(tempDir, { recursive: true });
 }
 
-// Configure multer to store files in the 'public/temp' directory
+// Configure multer to store files in the /tmp directory
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, tempDir);  // Store files in 'public/temp' in the root directory
+        cb(null, tempDir);  // Store files in /tmp in Vercel environment
     },
     filename: function (req, file, cb) {
         cb(null, file.originalname);  // Use the original filename
