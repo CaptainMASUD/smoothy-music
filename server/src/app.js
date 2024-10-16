@@ -23,11 +23,11 @@ app.use(cookieParser());
 // Import user routes
 import userRouter from "./routes/users.routes.js";
 // Import audio routes
-import audioRouter from "./routes/audio.routes.js"; // Import the new audio routes
+import audioRouter from "./routes/audio.routes.js"; 
 
 // Use user routes
 app.use("/api/v1/users", userRouter);
 // Use audio routes
-app.use("/api/v1/audio", audioRouter); // Set up audio routes
+app.use("/api/v1/audio", audioRouter); 
 
 export { app };
