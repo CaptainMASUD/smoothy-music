@@ -212,7 +212,7 @@ const AuthForm = () => {
     }
   };
 
-  const text = "Listen to Your Own Music";
+  const text = "Listen to Your Heart";
   return (
     <div className="flex flex-col justify-center items-center  min-h-screen  relative ">
       <div className="flex flex-col items-center">
