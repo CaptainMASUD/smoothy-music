@@ -30,8 +30,6 @@ import audioRouter from "./routes/audio.routes.js";
 app.use("/api/v1/users", userRouter);
 // Use audio routes
 app.use("/api/v1/audio", audioRouter); // Set up audio routes
-app.use("/",(req,res)=>{
-    res.send("welceom to smoothy music api")
-})
+
 
 export { app };
